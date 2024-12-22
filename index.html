@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(255, 216, 145);
+        height: 10vh;
+    }
+    .sec{
+        height: 90vh;
+        background-image: url(pics/bgi-2.webp);
+        background-size: 100% 100%;
+    }
+    h1{
+        font-weight: 900;
+        font-family: cursive;
+        font-size: 35px;
+        padding-left: 4%;
+        margin: 10px;
+    }
+
+    /* From Uiverse.io by vinodjangid07 */ 
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 1% 4% 0% 0%;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(26, 12, 4);
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 135px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+/* For devices with a max width of 1024px (tablets and smaller laptops) */
+@media (max-width: 1024px) {
+    nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        padding-left: 2%;
+    }
+
+    .Btn {
+        width: 40px;
+        height: 40px;
+        margin: 10px 2% 0 auto;
+    }
+
+    .Btn:hover {
+        width: 120px;
+    }
+
+    .Btn .text {
+        font-size: 1em;
+    }
+
+    .sec {
+        background-size: cover;
+    }
+}
+
+/* For devices with a max width of 768px (large phones and small tablets) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 10px 5px;
+    }
+
+    h1 {
+        font-size: 35px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .Btn {
+        width: 35px;
+        height: 35px;
+        margin: 10px 0;
+    }
+
+    .Btn:hover {
+        width: 110px;
+    }
+
+    .Btn .text {
+        font-size: 0.9em;
+    }
+
+    .sec {
+        background-size: 100% 100%;
+        background-position: center;
+    }
+}
+
+/* For devices with a max width of 480px (small phones) */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+        height: auto;
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin: 5px;
+    }
+
+    .Btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .Btn:hover {
+        width: 100px;
+    }
+
+    .Btn .text {
+        font-size: 0.8em;
+    }
+
+    .sec {
+      height: 90.1vh;
+        background-size: 100% 100%;
+        background-position: center;
+    }
+}
+
+</style>
+<body>
+    <nav>
+        <h1>Expensive Tracker</h1>
+        <button class="Btn" onclick="login()">
+        
+          <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>
+        
+          <div class="text">Login</div>
+        </button>
+    </nav>
+    <section class="sec">
+
+    </section>
+    <script>
+        function login(){
+            window.location.href="login.html";
+        }
+    </script>
+</body>
+</html>

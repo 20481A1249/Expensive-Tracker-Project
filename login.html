@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="registration.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Login and Signup Form</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-image: url(pics/bgi-1.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            background: rgba(245, 244, 244, 0.1); /* Semi-transparent white */
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgb(246, 147, 10); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-container h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .form-container .user-box {
+            position: relative;
+        }
+        .form-container .toggle-password {
+            position: absolute;
+            top: 30%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .form-container .toggle-password i {
+            font-size: 16px;
+            color: whitesmoke;
+        }
+
+        .form-container .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: whitesmoke;
+            margin-bottom: 30px;
+            outline: none;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(20, 18, 18, 0.5); /* Transparent border */
+        }
+
+        .form-container .user-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-container .user-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: white;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .form-container .user-box input:focus~label,
+        .form-container .user-box input:valid~label {
+            top: -20px;
+            left: 0;
+            color: rgb(7, 242, 7);
+            font-size: 12px;
+            font-weight: bolder;
+        }
+
+        .form-container form a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 0.5s;
+            margin-top: 40px;
+            letter-spacing: 4px;
+            /* border: 1px solid white; */
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+        }
+
+        .form-container a:hover {
+            background: #03f484;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03f484, 0 0 25px #03f484, 0 0 50px #03f484, 0 0 100px #03f484;
+        }
+
+        .switch-link {
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+        }
+        .switch-link:hover{
+            color: red;
+        }
+
+        /* For devices with a max width of 1024px (tablets and smaller laptops) */
+@media (max-width: 1024px) {
+    .form-container {
+        width: 30%;
+        padding: 30px;
+        transform: translate(-50%, -50%);
+    }
+
+    .form-container h2 {
+        font-size: 24px;
+    }
+
+    .form-container .user-box input {
+        font-size: 14px;
+    }
+
+    .form-container .user-box label {
+        font-size: 14px;
+    }
+
+    .form-container form a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* For devices with a max width of 768px (large phones and small tablets) */
+@media (max-width: 768px) {
+    .form-container {
+        width: 45%;
+        padding: 20px;
+        transform: translate(-50%, -50%);
+    }
+
+    .form-container h2 {
+        font-size: 20px;
+    }
+
+    .form-container .user-box input {
+        font-size: 14px;
+    }
+
+    .form-container .user-box label {
+        font-size: 12px;
+    }
+
+    .form-container form a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .form-container .toggle-password i {
+        font-size: 14px;
+    }
+
+    .switch-link {
+        font-size: 12px;
+    }
+}
+
+/* For devices with a max width of 480px (small phones) */
+@media (max-width: 480px) {
+    body {
+        overflow-y: auto;
+        background-size: 100% 100%;
+    }
+
+    .form-container {
+        width: auto;
+        height: auto;
+        padding: 15px;
+    }
+
+    .form-container h2 {
+        font-size: 18px;
+    }
+
+    .form-container .user-box input {
+        font-size: 12px;
+    }
+
+    .form-container .user-box label {
+        font-size: 10px;
+    }
+
+    .form-container form a {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .form-container .toggle-password i {
+        font-size: 12px;
+    }
+
+    .switch-link {
+        font-size: 10px;
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+    <div id="login-form" class="form-container active">
+        <h2>Login Form</h2>
+        <form action="">
+            <div class="user-box">
+                <input type="email" id="loginEmail" required>
+                <label>Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="loginPassword" required>
+                <label>Password</label>
+                <span class="toggle-password" onclick="togglePasswordVisibility('loginPassword','eyeIcon1')">
+                    <i id="eyeIcon1" class="fas fa-eye"></i>
+                </span>
+            </div>
+            <a href="#" id="btn2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Submit
+            </a>
+        </form>
+        <div class="switch-link" onclick="switchForm('signup-form')">Don't have an account? Sign up</div>
+    </div>
+
+    <div id="signup-form" class="form-container">
+        <h2>Signup Form</h2>
+        <form action="">
+            <div class="user-box">
+                <input type="text" id="signupUsername" name="username" required>
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="signupPassword" name="password" required>
+                <label>Password</label>
+                <span class="toggle-password" onclick="togglePasswordVisibility('signupPassword','eyeIcon2')">
+                    <i id="eyeIcon2" class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="user-box">
+                <input type="password" id="signupConfirmpassword" name="cpassword" required>
+                <label>Confirm Password</label>
+                <span class="toggle-password" onclick="togglePasswordVisibility('signupConfirmpassword','eyeIcon3')">
+                    <i id="eyeIcon3" class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="user-box">
+                <input type="email" id="signupEmail" name="email" required>
+                <label>Email</label>
+            </div>
+            <a href="#" id="btn1">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Submit
+            </a>
+        </form>
+        <div class="switch-link" onclick="switchForm('login-form')">Already have an account? Log in</div>
+    </div>
+
+    <script>
+        function switchForm(formId) {
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('signup-form').classList.remove('active');
+            document.getElementById(formId).classList.add('active');
+        }
+
+        function togglePasswordVisibility(passwordFieldId, eyeIconId) {
+            const passwordField = document.getElementById(passwordFieldId);
+            const eyeIcon = document.getElementById(eyeIconId);
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
