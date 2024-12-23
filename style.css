@@ -137,9 +137,19 @@ form button:hover {
         gap: 10px;
     }
 
-    form input, form select, form button {
+    form input{
         width: 95%;
         padding: 10px;
+    }
+    form select{
+        font-size: 14px;
+        padding: 8px;
+        width: 99%;
+    }
+    form button {
+        font-size: 14px;
+        padding: 8px;
+        width: 99%;
     }
 
     .expense-table th, .expense-table td {
@@ -164,10 +174,20 @@ form button:hover {
         padding: 8px;
     }
 
-    form input, form select, form button {
+    form input{
         font-size: 14px;
         padding: 8px;
         width: 90%;
+    }
+    form select{
+        font-size: 14px;
+        padding: 8px;
+        width: 95%;
+    }
+    form button {
+        font-size: 14px;
+        padding: 8px;
+        width: 95%;
     }
 
     h1 {
