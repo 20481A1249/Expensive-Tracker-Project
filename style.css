@@ -1,7 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url(pics/bgi-3.webp); 
-    background-size: 100% 115%;   
+    background-size:cover;   
+    background-repeat: no-repeat;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -94,6 +96,9 @@ form button:hover {
     background-color: rgb(136, 7, 7);
     border: 1px solid rgb(148, 5, 5);
     color: white;
+}
+#expense-chart{
+    display: none;
 }
 
 /* For devices with a max width of 1024px (tablets and smaller laptops) */
