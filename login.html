@@ -257,9 +257,6 @@
             <div class="user-box">
                 <input type="password" id="loginPassword" required>
                 <label>Password</label>
-                <span class="toggle-password" onclick="togglePasswordVisibility('loginPassword','eyeIcon1')">
-                    <i id="eyeIcon1" class="fas fa-eye"></i>
-                </span>
             </div>
             <a href="#" id="btn2">
                 <span></span>
@@ -281,16 +278,10 @@
             <div class="user-box">
                 <input type="password" id="signupPassword" name="password" required>
                 <label>Password</label>
-                <span class="toggle-password" onclick="togglePasswordVisibility('signupPassword','eyeIcon2')">
-                    <i id="eyeIcon2" class="fas fa-eye"></i>
-                </span>
             </div>
             <div class="user-box">
                 <input type="password" id="signupConfirmpassword" name="cpassword" required>
                 <label>Confirm Password</label>
-                <span class="toggle-password" onclick="togglePasswordVisibility('signupConfirmpassword','eyeIcon3')">
-                    <i id="eyeIcon3" class="fas fa-eye"></i>
-                </span>
             </div>
             <div class="user-box">
                 <input type="email" id="signupEmail" name="email" required>
@@ -311,21 +302,6 @@
             document.getElementById('login-form').classList.remove('active');
             document.getElementById('signup-form').classList.remove('active');
             document.getElementById(formId).classList.add('active');
-        }
-
-        function togglePasswordVisibility(passwordFieldId, eyeIconId) {
-            const passwordField = document.getElementById(passwordFieldId);
-            const eyeIcon = document.getElementById(eyeIconId);
-
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordField.type = "password";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            }
         }
 
     </script>

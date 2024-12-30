@@ -162,6 +162,12 @@ form button:hover {
         padding: 8px;
     }
 
+    .chart-container {
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
     .total-amount {
         font-size: 16px;
     }
@@ -199,9 +205,10 @@ form button:hover {
         font-size: 1.5rem;
     }
 
+   
     .expense-table th, .expense-table td {
-        font-size: 12px;
-        padding: 5px;
+        font-size: 10px;
+        padding: 1px;
     }
 
     .total-amount {
