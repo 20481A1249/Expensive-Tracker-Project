@@ -142,7 +142,17 @@
         .switch-link:hover{
             color: red;
         }
-
+        .guestlogin{
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+            padding: 0px;
+        }
+        .guestlogin:hover{
+            color: red;
+        }
         /* For devices with a max width of 1024px (tablets and smaller laptops) */
 @media (max-width: 1024px) {
     .form-container {
@@ -201,6 +211,9 @@
     .switch-link {
         font-size: 12px;
     }
+    .guestlogin{
+        font-size: 12px;
+    }
 }
 
 /* For devices with a max width of 480px (small phones) */
@@ -240,6 +253,9 @@
     .switch-link {
         font-size: 10px;
     }
+    .guestlogin{
+        font-size: 10px;
+    }
 }
 
     </style>
@@ -266,6 +282,7 @@
             </a>
         </form>
         <div class="switch-link" onclick="switchForm('signup-form')">Don't have an account? Sign up</div>
+        <div class="guestlogin" onclick="guest()">Login as Guest?</div>
     </div>
 
     <div id="signup-form" class="form-container">
@@ -295,6 +312,8 @@
             </a>
         </form>
         <div class="switch-link" onclick="switchForm('login-form')">Already have an account? Log in</div>
+        <div class="guestlogin" onclick="guest()">Login as Guest?</div>
+
     </div>
 
     <script>
@@ -302,6 +321,10 @@
             document.getElementById('login-form').classList.remove('active');
             document.getElementById('signup-form').classList.remove('active');
             document.getElementById(formId).classList.add('active');
+        }
+        
+        function guest(){
+            window.location.href="main.html";
         }
 
     </script>
