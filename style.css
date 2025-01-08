@@ -257,6 +257,12 @@ form button:hover {
     .expense-table th, .expense-table td {
         font-size: 10px;
         padding: 1px;
+        text-align: left;
+    }
+    
+    .expense-table th {
+    
+        text-align: left;
     }
 
     .total-amount {
@@ -277,6 +283,6 @@ form button:hover {
     }
 
     .edit-btn, .delete-btn {
-        font-size: 14px;
+        font-size: 10px;
     }
 }
