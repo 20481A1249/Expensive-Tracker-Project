@@ -38,12 +38,12 @@
                 <tbody id="expense-list"></tbody>
             </table>
             <div class="total-amount">
-                <strong>Total:</strong> <b>₹</b> <span id="total-amount">0.00</span>
+                <strong>Total:</strong> ₹<span id="total-amount">0.00</span>
             </div>
         </div>
 
         <div class="filter">
-            <label for="filter-category">Filter by Category:</label>
+            <label for="filter-category"><b>Filter by Category:</b></label>
             <select id="filter-category">
                 <option value="All">All</option>
                 <option value="Food">Food</option>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="card mb-4">
-            <div class="card-header">Expense Summary</div>
+            <div class="card-header"><b>Expense Summary:</b></div>
             <div class="card-body">
                 <ul id="expense-summary" class="list-group">
                     <!-- Dynamic summary will be added here -->
@@ -63,7 +63,7 @@
         </div>
 
         <div>
-            <label for="prediction-months">Predict Future Expenses (Months):</label>
+            <label for="prediction-months"><b>Predict Future Expenses (Months):</b></label>
             <input type="number" id="prediction-months" placeholder="Enter months" required />
             <button id="predict-button">Predict</button>
             <div id="prediction-result"></div>

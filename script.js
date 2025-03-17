@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const row = document.createElement("tr");
             row.innerHTML = `
                 <td>${expense.name}</td>
-                <td>$${expense.amount.toFixed(2)}</td>
+                <td>₹${expense.amount.toFixed(2)}</td>
                 <td>${expense.category}</td>
                 <td>${expense.date}</td>
                 <td>
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (const [category, total] of Object.entries(summary)) {
             const listItem = document.createElement("li");
             listItem.className = "list-group-item";
-            listItem.textContent = `${category}: $${total.toFixed(2)}`;
+            listItem.textContent = `${category}: ₹${total.toFixed(2)}`;
             expenseSummary.appendChild(listItem);
         }
     }
@@ -171,8 +171,10 @@ predictButton.addEventListener("click", () => {
     const monthsAhead = parseInt(predictionMonthsInput.value);
     if (!monthsAhead || monthsAhead <= 0) {
         predictionResult.textContent = "Please enter a valid number of months.";
+        predictionResult.classList.add('error-message')
         return;
     }
+    predictionResult.classList.remove('error-message');
 
     const predictedExpenses = predictFutureExpenses(expenses, monthsAhead);
 
@@ -180,7 +182,7 @@ predictButton.addEventListener("click", () => {
         <h4>Predicted Expenses for ${monthsAhead} Month(s):</h4>
         <ul>
             ${Object.entries(predictedExpenses)
-                .map(([category, total]) => `<li>${category}: $${total.toFixed(2)}</li>`)
+                .map(([category, total]) => `<li>${category}: ₹${total.toFixed(2)}</li>`)
                 .join("")}
         </ul>
     `;

@@ -125,6 +125,9 @@ form button:hover {
   #prediction-months{
       padding: 10px;
   }
+  .error-message{
+    color: red;
+  }
   
   @keyframes a {
     0% {
